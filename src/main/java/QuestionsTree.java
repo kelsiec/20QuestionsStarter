@@ -13,6 +13,8 @@ public class QuestionsTree {
     public QuestionsTree(String filePath) throws FileNotFoundException {
         Scanner scan = new Scanner(new File(filePath));
         QuestionsNode current = root;
+
+        // Hint: Your todos will manipulate this stack
         Stack<QuestionsNode> stack = new Stack<>();
 
         while (scan.hasNextLine()) {
@@ -31,14 +33,13 @@ public class QuestionsTree {
                     } else if (current.getNo() == null) {
                         current.setNo(node);
                         inserted = true;
-                    } else {
-                        current = stack.pop();
                     }
+                    // TODO: What should happen if both pointers are filled for this question?
                 }
             }
 
             if (data[0].equals("Q")) {
-                stack.push(current);
+                // TODO: What should happen if this is a new Question node?
                 current = node;
             }
         }
